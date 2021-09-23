@@ -1,0 +1,52 @@
+ PROCEDURE vec(var v1,var v2 ,var sum1 )
+ VAR
+     v1,v2:  ARRAY_OF INTEGER[10];
+     i:INTEGER;
+ BEGIN
+ sum:=0;
+     FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        sum:=sum + v1[i]*v2[i];
+     END_FOR
+     sum1:=sum;
+ END
+ FUNCTION vec1(var v1,var v2) : INTEGER
+ VAR
+    v1,v2:  ARRAY_OF INTEGER[10];
+     i:INTEGER; 
+ BEGIN
+     sum:=0;
+     FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        sum:=sum + v1[i]*v2[i];
+     END_FOR
+     RETURN sum ;
+ END
+ ALGORITHM sum vector
+VAR
+    sum:=0;
+    sum2:INTEGER:=0;
+    ar1 : ARRAY_OF INTEGER[10];
+    ar2: ARRAY_OF INTEGER[10];
+BEGIN
+  write("give me two array");
+  FOR i FROM 0 TO ar1 STEP 1  DO
+      read (ar1[i]);
+  END_FOR
+  FOR i FROM 0 TO ar1 STEP 1  DO
+      read (ar2[i]);
+  END_FOR
+
+  IF (ar1.length=ar2.length ) THEN
+      
+   vec(ar1,ar2,sum2);
+    write (sum2);
+  // vec1(ar1,ar2);
+   
+  ELSE
+      write ("length invalid")
+  END_IF
+  IF (sum2=0) THEN
+      write("orthogonaux")
+  ELSE
+      write("non orthogonaux")
+  END_IF
+END
